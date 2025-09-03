@@ -155,9 +155,8 @@
             }
 
             .nav-links {
-                justify-content: center;
-                align-items: center;
-                display: flex;
+               
+                display: none;
                 flex-direction: column;
                 background: var(--color2);
                 position: absolute;
@@ -234,6 +233,28 @@
                 navLinks.classList.remove("active");
             }
         });
+    </script>
+     <script>
+        // Right click disable
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+        // Disable common keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener("keydown", (e) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        // Detect if DevTools is open (size trick)
+        setInterval(() => {
+            if (window.outerHeight - window.innerHeight > 150 || window.outerWidth - window.innerWidth > 150) {
+                document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>⚠️ Inspect Not Allowed!</h1>";
+            }
+        }, 1000);
     </script>
 </body>
 

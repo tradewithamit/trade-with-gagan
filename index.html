@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Trading With Gagan</title>
+    <style>
+        :root {
+            --color1: #8C1007;
+            --color2: #660B05;
+            --color3: #3E0703;
+            --light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+        body {
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--color1);
+            color: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        header img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f0c0c0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--light);
+            margin: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: var(--color2);
+            padding: 10px;
+        }
+
+        .nav-links.active a {
+            display: block;
+            padding: 10px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://yt3.ggpht.com/tqF74uSumIlzAv_yfWLEytDX0XjuZTcGrR75ard5d3aiZ1lt0IRlOp-AlKpniN0epqQPTEcSwT4DIkY=s800-c-fcrop64=1,00000000ffffffff-rw-nd-v1') top right/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px var(--color3);
+        }
+
+        .hero h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
+
+        .hero button {
+            background: var(--color2);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--light);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .hero button::after {
+            content: "Click";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .hero button:hover {
+            background: var(--color1);
+        }
+
+        .hero button:hover span {
+            opacity: 0;
+        }
+
+        .hero button:hover::after {
+            opacity: 1;
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 80px 20px;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about h2 {
+            margin-bottom: 15px;
+            color: var(--color1);
+        }
+
+        .about p {
+            font-size: 1rem;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+            background: #ccc;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .courses h2 {
+            margin-bottom: 40px;
+            color: var(--color1);
+        }
+
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            /* center content */
+            margin: 0 auto;
+        }
+
+
+        .course-card {
+            background: var(--color2);
+            color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-card img {
+            padding: 10px;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        .course-card .content {
+            padding: 5px;
+            /* background-color: gray; */
+            margin-top: -10px;
+        }
+
+        .course-card h3 {
+            margin: 10px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .new-price {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .course-card button {
+            margin-top: 10px;
+            background: var(--color1);
+            border: none;
+            padding: 10px 20px;
+            color: var(--light);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .course-card button:hover {
+            background: var(--color3);
+        }
+
+        /* Why Buy Section */
+        .why-buy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 80px 20px;
+            align-items: center;
+            background: #f9f9f9;
+        }
+
+        .why-buy h2 {
+            margin-bottom: 15px;
+            color: var(--color1);
+        }
+
+        .why-buy img {
+            width: 100%;
+            border-radius: 10px;
+            background: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color3);
+            color: var(--light);
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about,
+            .why-buy {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                /* hide by default */
+                flex-direction: column;
+                background: var(--color2);
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="https://yt3.googleusercontent.com/C3MYltcUsrXOfiojsiQ-kdsRXNNfG6Chl0JA7Kg5aXXS0aJbN_r2aH2Y3LFyeBezU0AFDvIw=s120-c-k-c0x00ffffff-no-rj" alt="Logo">
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            <a href="#courses">Course</a>
+            <a href="#whybuy">What do we offer</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Trading With Gagan</h1>
+        <h3>Empowering Investments, Unlocking Profits: Your Guide to Stock Market Success.</h3>
+        <button onclick="document.querySelector('#courses').scrollIntoView({behavior: 'smooth'})">
+            <span>Know More</span>
+        </button>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div>
+            <h2>Being a Trader, I always needed</h2>
+            <p>Gagan Yadav exceptional educator with a unique blend of expertise. With 6 years of trading experience
+                and an IIT Kharagpur education, they bring a wealth of knowledge to the classroom. Residing in Jaipur,
+                their successful hotel ventures reflect their entrepreneurial acumen. Passionate about sharing insights,
+                they inspire students to excel in trading and embrace a holistic approach to learning. Join their
+                classes for a transformative educational journey, where real-world experiences meet academic excellence.
+            </p>
+        </div>
+        <div>
+            <img src="https://img.youtube.com/vi/R6aJ29EGwfY/maxresdefault.jpg" alt="About Image">
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="courses">
+        <h2>Explore Our Courses</h2>
+        <div class="course-grid">
+            <!-- Course Card -->
+            <div class="course-card">
+                <img src="https://github.com/tradewithamit/losscutter/blob/main/course.jpg?raw=true" alt="Course">
+                <div class="content">
+                    <h3>📈 Stock Market Basic to Advance Complete Course</h3>
+                    <p><span class="old-price">₹5,599</span><span class="new-price">₹3,599</span></p>
+                    <button onclick="window.location.href='https://rzp.io/rzp/MGhWaZF'">Buy Now</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <img src="https://github.com/tradewithamit/losscutter/blob/main/pdf2.jpg?raw=true" alt="Course">
+                <div class="content">
+                    <h3>💹 Candelstick Pattern E-Book <br> Hindi And English</h3>
+                    <p><span class="old-price">₹199</span><span class="new-price">₹99</span></p>
+                    <button onclick="window.location.href='https://rzp.io/rzp/hbq5umgC'">Buy Now</button>
+                </div>
+            </div>
+            
+           
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Buy -->
+    <section id="whybuy" class="why-buy">
+        <div>
+            <img src="https://img.youtube.com/vi/ywkmcoDIWrI/sddefault.jpg" alt="Why Buy Image">
+        </div>
+        <div>
+            <h2>Why should you Buy This course?</h2>
+            <p>Gateway to Financial Empowerment. Unlock the secrets of successful investing, stay updated with market
+                trends, and make informed decisions. Let's build your wealth journey together.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Trading With Gagan Yadav. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+    <script>
+        // Right click disable
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+        // Disable common keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener("keydown", (e) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        // Detect if DevTools is open (size trick)
+        setInterval(() => {
+            if (window.outerHeight - window.innerHeight > 150 || window.outerWidth - window.innerWidth > 150) {
+                document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>⚠️ Inspect Not Allowed!</h1>";
+            }
+        }, 1000);
+    </script>
+    <script>
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+    
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+        }
+    
+        // Close menu when clicked outside
+        document.addEventListener("click", function (e) {
+            if (navLinks.classList.contains("active") &&
+                !navLinks.contains(e.target) &&
+                !hamburger.contains(e.target)) {
+                navLinks.classList.remove("active");
+            }
+        });
+    </script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Terms & Conditions - Trade-with-Losscutter</title>
+    <link rel="shortcut icon" href="https://github.com/tradewithamit/losscutter/blob/main/losscutterlogo.png?raw=true"
+        type="image/x-icon">
+    <style>
+        * {
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1710166755608-58b3d62db3a8?q=80&w=1332&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Terms & Conditions</h1>
+        <p>Welcome to <b>Trade-with-Losscutter</b>. By accessing or using our website, you agree to be bound by these
+            Terms and Conditions.</p>
+        <p>1. All courses are for educational purposes only. We do not provide financial advice.</p>
+        <p>2. Payments once made are non-refundable unless otherwise specified.</p>
+        <p>3. Unauthorized sharing or reselling of our content is strictly prohibited.</p>
+        <p>4. We reserve the right to update these terms anytime.</p>
+        <p><a href="index.html">⬅ Back to Home</a></p>
+    </div>
+    <script>
+        // Right click disable
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+  
+        // Disable common keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener("keydown", (e) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        });
+  
+        // Detect if DevTools is open (size trick)
+        setInterval(() => {
+            if (window.outerHeight - window.innerHeight > 150 || window.outerWidth - window.innerWidth > 150) {
+                document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>⚠️ Inspect Not Allowed!</h1>";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

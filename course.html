@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="https://github.com/tradewithamit/losscutter/blob/main/losscutterlogo.png?raw=true"
+        type="image/x-icon">
+
+  <title>Premium Course - Trade-with-Losscutter</title>
+  <style>
+     *{
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: #f9f9ff;
+      color: #333;
+    }
+    header {
+      background: #6C63FF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    .video-box {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 { margin-bottom: 10px; }
+    iframe, video {
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      aspect-ratio: 16 / 9;  /* ✅ Fix for laptop ratio */
+      height: auto;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #6C63FF;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎓 Premium Course</h1>
+  </header>
+
+  <div class="content">
+    <div class="video-box">
+      <h2>Episode 1: Title here</h2>
+      <!-- ✅ YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/9HTAAJYqABk?si=7hFjuWp6B9KMNZAN" allowfullscreen></iframe>
+      <a href="codes/header-code.zip" download>Download Code</a>
+    </div>
+
+    <div class="video-box">
+      <h2>Episode 2: Title here</h2>
+      <video src="videos/hero-section.mp4" controls></video>
+      <a href="codes/hero-code.zip" download>Download Code</a>
+    </div>
+  </div>
+  <script>
+    // Right click disable
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Disable common keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.addEventListener("keydown", (e) => {
+        if (
+            e.key === "F12" ||
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+            (e.ctrlKey && e.key === "U")
+        ) {
+            e.preventDefault();
+        }
+    });
+
+    // Detect if DevTools is open (size trick)
+    setInterval(() => {
+        if (window.outerHeight - window.innerHeight > 150 || window.outerWidth - window.innerWidth > 150) {
+            document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>⚠️ Inspect Not Allowed!</h1>";
+        }
+    }, 1000);
+</script>
+</body>
+</html>

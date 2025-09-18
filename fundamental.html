@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="https://github.com/tradewithamit/losscutter/blob/main/losscutterlogo.png?raw=true"
+        type="image/x-icon">
+
+  <title>Thank You ❤️</title>
+  <style>
+    *{
+      -webkit-tap-highlight-color: transparent;
+
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f8f9fd, #ece9ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    h1 { color: #6C63FF; margin-bottom: 20px; }
+    a {
+      display: inline-block;
+      background: #6C63FF;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    a:hover { background: #5348d8; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Shukriya! ❤️</h1>
+    <p>Aapka support mila → ab aap Premium Access use kar sakte ho 🚀</p>
+    <a href="course.html">Go to Course</a>
+  </div>
+  <script>
+    // Right click disable
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Disable common keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.addEventListener("keydown", (e) => {
+        if (
+            e.key === "F12" ||
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+            (e.ctrlKey && e.key === "U")
+        ) {
+            e.preventDefault();
+        }
+    });
+
+    // Detect if DevTools is open (size trick)
+    setInterval(() => {
+        if (window.outerHeight - window.innerHeight > 150 || window.outerWidth - window.innerWidth > 150) {
+            document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>⚠️ Inspect Not Allowed!</h1>";
+        }
+    }, 1000);
+</script>
+</body>
+</html>
